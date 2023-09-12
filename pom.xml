@@ -8,13 +8,30 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging> <!-- Set packaging type to 'war' for web application -->
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source> <!-- Update this to your Java version -->
+        <maven.compiler.target>1.8</maven.compiler.target> <!-- Update this to your Java version -->
+    </properties>
+
     <dependencies>
         <!-- Add your dependencies here -->
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.8.1</version>
+            <version>4.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <version>10.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version> <!-- Use the latest version -->
+            <scope>test</scope>
         </dependency>
         <!-- Add other dependencies as needed -->
     </dependencies>
@@ -26,8 +43,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
+                    <!-- Update these to match your project's Java version -->
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
@@ -37,10 +55,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.0</version> <!-- Use the latest version -->
+                <!-- Use the latest version (check Maven repository) -->
+                <version>3.4.0</version>
                 <configuration>
-                    <warSourceDirectory>src/main/webapp</warSourceDirectory> <!-- Location of web application resources -->
-                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Optional if no web.xml -->
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
